@@ -38,9 +38,8 @@ resource "azurerm_private_dns_zone" "this" {
 resource "azurerm_private_dns_zone_virtual_network_link" "multi_link" {
   for_each = local.merged_vnets
 
-  name                  = "vnet-link-${each.value.vnet_name}"
-  resource_group_name   = var.resource_group_name
-  private_dns_zone_name = azurerm_private_dns_zone.this.name
-  virtual_network_id    = data.azurerm_virtual_network.vnets[each.key].id
-  tags                  = local.tags
+  name               = "vnet-link-${each.value.vnet_name}"
+  private_dns_zone_id = azurerm_private_dns_zone.this.id
+  virtual_network_id = data.azurerm_virtual_network.vnets[each.key].id
+  tags               = local.tags
 }

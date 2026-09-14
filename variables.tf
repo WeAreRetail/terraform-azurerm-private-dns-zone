@@ -31,3 +31,14 @@ variable "custom_tags" {
   default     = {}
   description = "The custom tags to add on the resource."
 }
+
+variable "resolution_policy" {
+  type        = string
+  default     = "Default"
+  description = "Resolution policy for the Private DNS Zone Virtual Network Link - Configure to 'NxDomainRedirect' in order to allow internet fallback when DNS resolution fails"
+
+  validation {
+    condition     = contains(["Default", "NxDomainRedirect"], var.resolution_policy)
+    error_message = "resolution_policy must be either Default or NxDomainRedirect."
+  }
+}

@@ -36,7 +36,7 @@ module "aware_private_dns_zone" {
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0.0 |
-| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | >= 3.0.2 |
+| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | >= 5.0.0 |
 
 #### Inputs
 
@@ -46,6 +46,7 @@ module "aware_private_dns_zone" {
 | <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name) | Parent resource group name | `string` | n/a | yes |
 | <a name="input_custom_tags"></a> [custom\_tags](#input\_custom\_tags) | The custom tags to add on the resource. | `map(string)` | `{}` | no |
 | <a name="input_description"></a> [description](#input\_description) | Private DNS zone description | `string` | `""` | no |
+| <a name="input_resolution_policy"></a> [resolution\_policy](#input\_resolution\_policy) | Resolution policy for the Private DNS Zone Virtual Network Link - Configure to 'NxDomainRedirect' in order to allow internet fallback when DNS resolution fails | `string` | `"Default"` | no |
 | <a name="input_virtual_network_name"></a> [virtual\_network\_name](#input\_virtual\_network\_name) | Virtual network name | `string` | `null` | no |
 | <a name="input_virtual_network_names"></a> [virtual\_network\_names](#input\_virtual\_network\_names) | Virtual network name | `list(object({ name = string, vnet_name = string }))` | `[]` | no |
 
